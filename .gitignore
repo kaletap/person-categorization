@@ -1,0 +1,5 @@
+categorization/
+
+
+*.pyc
+*/__pychache__/
