@@ -16,8 +16,8 @@ class Embeder:
 
     def _load_data(self, corpus_dir):
         data = {}
-        nlp = spacy.load('xx')
-        for doc_name in tqdm(os.listdir(corpus_dir)[:100], desc='Loading corpus...'):
+        nlp = spacy.load('xx_ent_wiki_sm')
+        for doc_name in tqdm(os.listdir(corpus_dir), desc='Loading corpus...'):
             doc_path = os.path.join(corpus_dir, doc_name)
             doc = Document.from_file(doc_path, nlp)
             data[doc_name] = doc
@@ -58,12 +58,11 @@ class Embeder:
 
 if __name__ == '__main__':
     corpus_dir = '../categorization/learningData/korpusONET'
-    model_dir = '../models/elmo_polish/'
-    save_dir = '../projections/elmo_test'
+    save_dir = '../embeddings'
 
     x = Embeder(corpus_dir)
-    model = ElmoModel(model_dir)
-    embeds = x.get_embeddings('corpus', 5, model)
+    model = GloveModel()
+    embeds = x.get_embeddings('corpus', 7, model)
 
     print(len(embeds))
     print(embeds[('Donald Tusk', 'politycy')].shape)

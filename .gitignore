@@ -1,7 +1,5 @@
 categorization/
 projections/
-models/
-
 
 *.pyc
 */__pychache__/

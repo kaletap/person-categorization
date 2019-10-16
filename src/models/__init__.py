@@ -1,2 +1,3 @@
 from .mock_model import MockModel
-from .elmo_model import ElmoModel
+from .glove_model import GloveModel
+# from .elmo_model import ElmoModel
